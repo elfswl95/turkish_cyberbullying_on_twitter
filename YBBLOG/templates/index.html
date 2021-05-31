@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Kullanıcı Tweetleri</h3>
+<hr>
+
+{% if user_tweet %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Tweet</th>
+        <th scope="col">ReTweet Sayısı</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user_tweet in user_tweet %}
+      <tr>
+        <th scope="row">{{user_tweet.tweet}}</th>
+        <td>{{user_tweet.retweetcount}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>  
+
+{% else %}
+
+<div class = "alert alert-danger">Bu kullanıcının timeline da tweet yok </div>
+{% endif %}
+
+{% endblock body %}
